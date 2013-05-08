@@ -14,3 +14,9 @@ The game is written with node.js and uses express as the framework.
   - Run 'node app.js'
   - Steer your projector to http://foobar:3000/game and everything
     else should be self-explanatory
+
+** Thanks
+
+Thanks go to @edokoa for their implementation of pong which is used here:
+
+https://github.com/edokoa/HTML-Pong
