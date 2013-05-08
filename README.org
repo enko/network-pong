@@ -1,0 +1,16 @@
+* network-pong
+
+** Description
+
+The aim of this project is to have a game of pong and controll it with
+your handheld and display it on a wall with a projector.
+
+The game is written with node.js and uses express as the framework.
+
+** Install
+
+  - You need to have installed node and npm.
+  - Run 'npm install'
+  - Run 'node app.js'
+  - Steer your projector to http://foobar:3000/game and everything
+    else should be self-explanatory
