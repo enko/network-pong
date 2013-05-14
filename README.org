@@ -1,4 +1,12 @@
-network-pong
-============
+* network-pong
+** description
 
 a networked pong, with a seperate controller and game display
+
+** todo
+
+  - somehow the disconnect event is sometimes triggered when it should not?
+  - tap event is maybe somewhat slow? I think I need to better understand the game
+
+
+
