@@ -1,12 +1,25 @@
 * network-pong
-** description
+** Description
 
-a networked pong, with a seperate controller and game display
+The aim of this project is to have a game of pong and controll it with
+your handheld and display it on a wall with a projector.
 
-** todo
+** Todo
 
   - somehow the disconnect event is sometimes triggered when it should not?
   - tap event is maybe somewhat slow? I think I need to better understand the game
 
 
+** Install
 
+  - You need to have installed node and npm.
+  - Run 'npm install'
+  - Run 'node app.js'
+  - Steer your projector to http://foobar:3000/game and everything
+    else should be self-explanatory
+
+** Thanks
+
+Thanks go to @edokoa for their implementation of pong which is used here:
+
+https://github.com/edokoa/HTML-Pong

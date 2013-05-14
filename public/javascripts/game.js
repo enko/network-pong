@@ -17,7 +17,7 @@
 //
 //***************************************************
 
-var socket = io.connect('http://localhost');
+var socket = io.connect(location.protocol+'//'+location.host+'/');
 
 var field = document.getElementById("playfield");
 var player1 = document.getElementById("player1");
@@ -32,7 +32,12 @@ var p1Display = [];
 var p2Display = [];
 var p1Score = 0;
 var p2Score = 0;
-var gameLoop = nil;
+var gameLoop = null;
+var sessionID = jQuery('#playfield').attr('data-session');
+var player1_connected = false;
+var player2_connected = false;
+
+function null_callback() {}
 
 //If you look closely, this array contains sprites for the numbers
 //(1=Pixel on, 0=Pixel off), they are hard-coded number sprites from 0
@@ -377,12 +382,59 @@ function main(){
                 window.setTimeout(function(){ keys[1] = false; }, 1000/20);
             }
         }
+        if (data.player == 2) {
+            if (data.direction == 'up') {
+                keys[2] = true;
+                window.setTimeout(function(){ keys[2] = false; }, 1000/20);
+            } else if(data.direction == 'down') {
+                keys[3] = true;
+                window.setTimeout(function(){ keys[3] = false; }, 1000/20);
+            }
+        }
     });
 
-    //call the main game loop
-    gameloop = window.setInterval(frame, 1000/30);
+    socket.on('player_connect',function (data) {
+        console.log(data);
+        if (data.session == sessionID) {
+            if (data.player == 1) {
+                player1_connected = true;
+                jQuery('#qr-player1').hide();
+            }
+            if (data.player == 2) {
+                player2_connected = true;
+                jQuery('#qr-player2').hide();
+            }
+        }
+        console.log([player1_connected,player2_connected]);
+        if (player1_connected && player2_connected) {
+            // both players are connect, start teh game
+            // display the game elements
+            jQuery('.player, .ball').show();
+            //call the main game loop
+            gameloop = window.setInterval(frame, 1000/30);
+        }
+    });
 
+    socket.on('player_disconnect',function () {
+        location.reload();
+    });
 
+    var qrcodedraw = new QRCodeLib.QRCodeDraw();
+
+    var player1_url =
+        location.protocol + '//' + 
+        location.host + '/' +
+        '#' + sessionID +
+        ',1';
+    console.log(player1_url);
+    qrcodedraw.draw(document.getElementById('qr-player1'),player1_url,null_callback);
+
+    var player2_url = 
+        location.protocol + '//' + 
+        location.host + '/' +
+        '#' + sessionID +
+        ',2';
+    qrcodedraw.draw(document.getElementById('qr-player2'),player2_url,null_callback);
 }
 
 main();
