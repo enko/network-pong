@@ -72,3 +72,19 @@ html{
 	height: 30px;
 	width: 30px;
 }
+
+.qrcode {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  width: 350px;
+  height: 350px;
+}
+
+#qr-player1 {
+  left: 10px;
+}
+
+#qr-player2 {
+  right: 10px;
+}
