@@ -17,7 +17,7 @@ html{
 
 .player, .ball{
 	position: absolute;
-	display: block;
+	display: none;
 	background: white;
 	
 	
