@@ -41,4 +41,12 @@ io.sockets.on('connection', function (socket) {
   socket.on('navigation', function (data) {
       socket.broadcast.emit('donav',data);
   });
+
+  socket.on('player', function (data) {
+      socket.broadcast.emit('player_connect',data);
+  });
+  socket.on('disconnect', function() {
+      socket.broadcast.emit('player_disconnect');
+  });
 });
+
