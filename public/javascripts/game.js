@@ -30,6 +30,7 @@ var p1Display = [];									//those arrays will contain the player scores
 var p2Display = [];
 var p1Score = 0;
 var p2Score = 0;
+var gameLoop = nil;
 var scoreNumbers =									//If you look closely, this array contains sprites for the numbers (1=Pixel on, 0=Pixel off), they are hard-coded number sprites from 0 to 9
 [													//It's a 3D array where [actual number][pixel row][pixel column]
 	[					//0
@@ -402,7 +403,8 @@ function main(){
         }
     });
 
-    window.setInterval(frame, 1000/30);							//call the main game loop
+    //call the main game loop
+    gameloop = window.setInterval(frame, 1000/30);
 
 
 }
