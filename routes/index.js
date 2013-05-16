@@ -5,7 +5,7 @@ var crypto = require('crypto');
  */
 
 function getSessionID() {
-  return crypto.createHash('sha256').update((new Date()).toString()).digest('hex');
+  return crypto.createHash('md5').update((new Date()).toString()).digest('hex');
 }
 
 exports.index = function(req, res){
