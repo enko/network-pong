@@ -415,9 +415,9 @@ function main(){
         }
     });
 
-    socket.on('player_disconnect',function () {
-        location.reload();
-    });
+    //socket.on('player_disconnect',function () {
+    //    location.reload();
+    //});
 
     var qrcodedraw = new QRCodeLib.QRCodeDraw();
 
