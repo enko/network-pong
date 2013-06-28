@@ -410,6 +410,7 @@ function main(){
             // both players are connect, start teh game
             // display the game elements
             jQuery('.player, .ball').show();
+            jQuery('#instruction').hide();
             //call the main game loop
             gameloop = window.setInterval(frame, 1000/30);
         }

@@ -89,3 +89,21 @@ html {
 #qr-player2 {
   right: 10px;
 }
+
+#instruction {
+  border: 0.5em solid white;
+  width: 80%;
+  top: 5%;
+  left: 4%;
+  display: block;
+  position: absolute;
+  background-color: black;
+  font-size: 2.5em;
+  color: white;
+  padding: 1em;
+
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px; /* rounded corners */
+
+}
