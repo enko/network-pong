@@ -2,7 +2,30 @@ html {
   background: black;
 }
 
+.box {
+  margin: 0 auto;
+  margin-top: 2.5em;
+  display: block;
+  border: 0.5em solid white;
+  width: 80%;
+  top: 15%;
+  display: block;
+  background-color: black;
+  font-size: 5em;
+  padding: 1em;
+
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px; /* rounded corners */
+}
+
+#nojs {
+  color: red;
+  border: 0.5em solid red;
+}
+
 #playfield {
+  display: none;
   position: relative;
   width: 960px;
   height: 800px;
@@ -54,6 +77,7 @@ html {
   border-right: 30px dotted #FFF;
   opacity: 0.2;
 }
+
 .score {
   opacity: .2;
   position: absolute;
@@ -61,9 +85,8 @@ html {
   top: 30px;
 }
 
-#p2Score {
+#p2score {
   left: 555px;
-
 }
 
 .pixel {
@@ -93,7 +116,7 @@ html {
 #instruction {
   border: 0.5em solid white;
   width: 80%;
-  top: 5%;
+  top: 4%;
   left: 4%;
   display: block;
   position: absolute;
@@ -106,4 +129,26 @@ html {
   -webkit-border-radius: 20px;
   border-radius: 20px; /* rounded corners */
 
+}
+
+#gameresults {
+  display: none;
+  border: 0.5em solid white;
+  width: 80%;
+  top: 4%;
+  left: 4%;
+  position: absolute;
+  background-color: black;
+  font-size: 2.5em;
+  color: white;
+  padding: 1em;
+
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px; /* rounded corners */
+  z-index: 9000;
+}
+
+#gameresults p {
+  color: white;
 }

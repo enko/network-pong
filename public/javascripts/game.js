@@ -27,12 +27,23 @@ var ball = document.getElementById("ball");
 //array of pressed keys
 var keys = [0,0,0,0];
 
+/*
+  Define a play mode.
+
+  Valid values are:
+  * maxscore: If a player reaches the max score, the game is finished
+  * bestofx: If the score of both players reaches the max score the one with most points wins
+*/
+var playmode = 'bestofx';
+var max_score = 9;
+
+
 //those arrays will contain the player scores
-var p1Display = [];
-var p2Display = [];
-var p1Score = 0;
-var p2Score = 0;
-var gameLoop = null;
+var p1display = [];
+var p2display = [];
+var p1score = 0;
+var p2score = 0;
+var gameloop = null;
 var sessionID = jQuery('#playfield').attr('data-session');
 var player1_connected = false;
 var player2_connected = false;
@@ -129,19 +140,52 @@ var scoreNumbers =
     ];
 
 
+function finishGame(whichPlayer) {
+    clearInterval(gameloop);
+    $('#gameresults').show();
+    if (p1score > p2score) {
+        $('#player').text('1');
+    } else if(p2score > p1score) {
+        $('#player').text('2');
+    }
+    var counter = 10;
+    $('#restartcounter').text(counter);
+    setInterval(function(){
+        if (counter <= 0) {
+            location.reload();
+        }
+        $('#restartcounter').text(counter);
+        counter--;
+    },1000);
+}
+
 //this function adds points to scores and updates the numbers in the
 //diplays
 function updateScore(whichPlayer){
     //right now the game freezes when a player has more than 9
     //points. The victory control should be inside of this function.
     if(whichPlayer==1) {
-        currentDisplay = p1Display;
-        p1Score++;
-        currentScore = p1Score;
+        currentDisplay = p1display;
+        p1score++;
+        currentScore = p1score;
     } else {
-        currentDisplay = p2Display;
-        p2Score++;
-        currentScore = p2Score;
+        currentDisplay = p2display;
+        p2score++;
+        currentScore = p2score;
+    }
+
+    if (playmode == 'bestofx') {
+        if ((p1score + p2score) >= max_score) {
+            // game is finished! stop the gameloop, show the winner
+            // and start the restart counter
+            finishGame();
+        }
+    } else if (playmode == 'maxscore') {
+        if ((p1score >= max_score) || (p2score >= max_score)) {
+            // game is finished! stop the gameloop, show the winner
+            // and start the restart counter
+            finishGame();
+        }
     }
 
     //Here I'm wiping the current 2D array and substituting it with
@@ -169,9 +213,9 @@ function createScores(){
         pScore=document.createElement("div");
         pScore.className="score";
         if(p==1) {
-            pScore.id="p1Score";
+            pScore.id="p1score";
         } else {
-            pScore.id="p2Score";
+            pScore.id="p2score";
         }
 
         //creates the <div> grid that will serve as displays for each player
@@ -192,9 +236,9 @@ function createScores(){
                 pScore.appendChild(pixel)
             }
             if(p==1) {
-                p1Display.push(row);
+                p1display.push(row);
             } else {
-                p2Display.push(row);
+                p2display.push(row);
             }
         }
 
@@ -343,6 +387,8 @@ function managePlayers(){
 
 
 function main(){
+    $('#nojs').hide();
+    $('#playfield').show();
     //initialize elements
     //This is will come handy in subsequent versions. Ignore
     playerHeight=100;

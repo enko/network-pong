@@ -6,9 +6,14 @@
     <link rel="stylesheet" href="/stylesheets/pong.css">
   </head>
   <body>
+    <div id="nojs" class="box">Bitte aktiviere Javascript!</div>
     <div id="playfield" data-session="{{ sessionID }}">
       <div id="instruction">
         <p>Verbinde dich mit dem WLAN <em>www.freifunk-jena.de</em> und scanne den QR-Code</p>
+      </div>
+      <div id="gameresults">
+        <p>Spieler <span id="player">x</span> hat gewonnen.</p>
+        <p>Das Spiel startet in <span id="restartcounter">x</span> Sekunden neu</p>
       </div>
       <div id="player1" class="player"></div>
       <div id="player2" class="player"></div>
