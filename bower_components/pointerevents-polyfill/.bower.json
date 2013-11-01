@@ -1,0 +1,21 @@
+{
+  "name": "pointerevents-polyfill",
+  "version": "0.0.20130808",
+  "main": "pointerevents.min.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "homepage": "https://github.com/components/pointerevents-polyfill",
+  "_release": "0.0.20130808",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.20130808",
+    "commit": "eb078a6f017c9a2d15fcc541daeaca7e454b1bff"
+  },
+  "_source": "git://github.com/components/pointerevents-polyfill.git",
+  "_target": "~0.0.20130808",
+  "_originalSource": "pointerevents-polyfill",
+  "_direct": true
+}

@@ -34,8 +34,8 @@ var keys = [0,0,0,0];
   * maxscore: If a player reaches the max score, the game is finished
   * bestofx: If the score of both players reaches the max score the one with most points wins
 */
-var playmode = 'bestofx';
-var max_score = 9;
+var playmode = 'maxscore';
+var max_score = 5;
 
 
 //those arrays will contain the player scores
@@ -313,7 +313,6 @@ function manageBall(){
     if(ball.hDir<-5) ball.hDir=-5;
     // We control the maximum speed of the ball
     if(ball.hDir>5) ball.hDir=5;
-    console.log(ball.hDir);
     //We position the ball in every frame
     ball.style.left=ball.x+"px";
     ball.style.top=ball.y+"px";
@@ -418,7 +417,6 @@ function main(){
 
 
     socket.on('donav', function (data) {
-        console.log(data);
         if (data.player == 1) {
             if (data.direction == 'up') {
                 keys[0] = true;
@@ -440,7 +438,6 @@ function main(){
     });
 
     socket.on('player_connect',function (data) {
-        console.log(data);
         if (data.session == sessionID) {
             if (data.player == 1) {
                 player1_connected = true;
