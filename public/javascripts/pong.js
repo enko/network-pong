@@ -2,8 +2,9 @@ require([
     "/socket.io/socket.io.js"
     , "/javascripts/pointerevents.js"
     , "/javascripts/jquery.js"
-], function () {
-    var socket = io.connect(location.protocol + '//' + location.host + '/');
+    , "/javascripts/mousetrap.js"
+], function (io) {
+    var socket = io(location.protocol + '//' + location.host + '/');
 
     var session = location.hash.split('#')[1].split(',')[0];
     var player = location.hash.split('#')[1].split(',')[1];
