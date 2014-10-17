@@ -31,6 +31,24 @@ require([
             $(ev.target).removeClass('glow');
         }, 500);
     });
+
+    Mousetrap.bind('up',function(){
+        socket.emit('navigation', {'direction': 'up', 'player': player, 'session': session});
+        $(ev.target).addClass('glow');
+        window.setTimeout(function () {
+            $(ev.target).removeClass('glow');
+        }, 500);
+        return false;                     
+    },'keyup');
+
+    Mousetrap.bind('down',function(){
+        socket.emit('navigation', {'direction': 'down', 'player': player, 'session': session});
+        $(ev.target).addClass('glow');
+        window.setTimeout(function () {
+            $(ev.target).removeClass('glow');
+        }, 500);
+        return false;
+    },'keyup');
 });
 
 
