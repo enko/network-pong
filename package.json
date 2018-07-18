@@ -1,14 +1,21 @@
 {
-  "name": "application-name",
+  "name": "network-pong",
+  "author": {
+    "email": "tim@datenknoten.me",
+    "name": "Tim Schumacher"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enko/network-pong"
+  },
   "version": "0.0.1",
-  "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
     "express": "3.2.3",
-    "twig": "*",
-    "socket.io": "*",
-    "qrcode" : "*"
+    "twig": "1.12.0",
+    "socket.io": "2.1.1",
+    "qrcode": "1.2.0"
   }
 }
