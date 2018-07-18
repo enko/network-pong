@@ -463,22 +463,20 @@ function main(){
     //    location.reload();
     //});
 
-    var qrcodedraw = new QRCodeLib.QRCodeDraw();
-
     var player1_url =
-        location.protocol + '//' + 
+        location.protocol + '//' +
         location.host + '/' +
         '#' + sessionID +
         ',1';
     console.log(player1_url);
-    qrcodedraw.draw(document.getElementById('qr-player1'),player1_url,null_callback);
+    QRCode.toCanvas(document.getElementById('qr-player1'), player1_url, null_callback);
 
-    var player2_url = 
-        location.protocol + '//' + 
+    var player2_url =
+        location.protocol + '//' +
         location.host + '/' +
         '#' + sessionID +
         ',2';
-    qrcodedraw.draw(document.getElementById('qr-player2'),player2_url,null_callback);
+    QRCode.toCanvas(document.getElementById('qr-player2'), player2_url, null_callback);
 }
 
 main();
