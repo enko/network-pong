@@ -1,1 +1,0 @@
-../../bower_components/pointerevents-polyfill/pointerevents.dev.js

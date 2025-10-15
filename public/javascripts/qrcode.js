@@ -1,1 +1,0 @@
-../../node_modules/qrcode/build/qrcode.js
