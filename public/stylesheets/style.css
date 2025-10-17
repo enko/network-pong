@@ -11,6 +11,20 @@ html, body {
     height: 48%;
     margin: 0;
     padding: 0;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    cursor: pointer;
+    -webkit-transition: border-color 0.1s ease-out;
+    -moz-transition: border-color 0.1s ease-out;
+    -ms-transition: border-color 0.1s ease-out;
+    -o-transition: border-color 0.1s ease-out;
+    transition: border-color 0.1s ease-out;
+}
+
+.container:active {
+    border-color: red;
 }
 
 .char {
@@ -32,13 +46,15 @@ html, body {
 }
 
 .char {
-    -webkit-transition: text-shadow 0.2s linear;
-    -moz-transition: text-shadow 0.2s linear;
-    -ms-transition: text-shadow 0.2s linear;
-    -o-transition: text-shadow 0.2s linear;
-    transition: text-shadow 0.2s linear;
+    -webkit-transition: text-shadow 0.2s linear, background-color 0.2s linear, transform 0.1s ease-out;
+    -moz-transition: text-shadow 0.2s linear, background-color 0.2s linear, transform 0.1s ease-out;
+    -ms-transition: text-shadow 0.2s linear, background-color 0.2s linear, transform 0.1s ease-out;
+    -o-transition: text-shadow 0.2s linear, background-color 0.2s linear, transform 0.1s ease-out;
+    transition: text-shadow 0.2s linear, background-color 0.2s linear, transform 0.1s ease-out;
 }
 
 .char.glow {
     text-shadow: 0 0 80px red;
+    background-color: rgba(255, 0, 0, 0.3);
+    transform: scale(1.1);
 }
